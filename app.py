@@ -17,7 +17,12 @@ def calculator():
         elif operation == "mul":
             result = num1 * num2
         elif operation == "div":
-            result = num1 / num2 if num2 != 0 else "Error: Division by zero"
+            try:
+                result=num1/num2
+            except ZeroDivisionError as e:
+                result=e
+        else:
+            result="input invalid"
 
     return render_template("index.html", result=result)
 
